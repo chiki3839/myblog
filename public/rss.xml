@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[CHIKIのブログ]]></title><description><![CDATA[blog by CHIKI]]></description><link>https://chikisblog.cf</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 16 Jan 2022 07:58:07 GMT</lastBuildDate><item><title><![CDATA[ブログを立ち上げてみよう～Gatsbyで立ち上げ編～]]></title><description><![CDATA[Gatsbyでブログを立ち上げた時のエラーについて]]></description><link>https://chikisblog.cfposts-20201229</link><guid isPermaLink="false">https://chikisblog.cfposts-20201229</guid><pubDate>Wed, 29 Dec 2021 07:00:00 GMT</pubDate><content:encoded>&lt;p&gt;前回のブログ選定で&lt;strong&gt;Gatsuby + Netlify&lt;/strong&gt;にしようと決めたCHIKI。しかしここから三山ほどあったのでした…&lt;/p&gt;
+&lt;h2 id=&quot;ブログの雛形探し&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E3%83%96%E3%83%AD%E3%82%B0%E3%81%AE%E9%9B%9B%E5%BD%A2%E6%8E%A2%E3%81%97&quot; aria-label=&quot;ブログの雛形探し permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a href=&quot;#%E3%83%96%E3%83%AD%E3%82%B0%E3%81%AE%E9%9B%9B%E5%BD%A2%E6%8E%A2%E3%81%97&quot; aria-label=&quot;ブログの雛形探し permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;ブログの雛形探し&lt;/h2&gt;
+&lt;p&gt;まずGatsbyのblog雛形を探します。&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;gatsby&lt;/code&gt;で検索すると男性用化粧品などがヒットしてしまうので、
+&lt;code class=&quot;language-text&quot;&gt;gatsbyjs ブログ&lt;/code&gt;などで検索します。するとGatsbyのスターターライブラリや↓&lt;/p&gt;
+&lt;div class=&quot;iframely-embed&quot;&gt;&lt;div class=&quot;iframely-responsive&quot; style=&quot;height: 140px; padding-bottom: 0;&quot;&gt;&lt;a href=&quot;https://www.gatsbyjs.com/starters/&quot; data-iframely-url=&quot;//cdn.iframe.ly/srKD0dV?card=small&quot;&gt; &lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;中の&lt;a href=&quot;https://github.com/gatsbyjs/gatsby-starter-blog&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;スターターブログ&lt;/a&gt;や&lt;a href=&quot;https://github.com/noahg/gatsby-starter-blog-no-styles&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;それのCSSを省いたもの&lt;/a&gt;
+、定番の&lt;a href=&quot;https://github.com/alxshelepenok/gatsby-starter-lumen&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;gatsby-starter-lumen&lt;/a&gt;などが見つかります。
+その中で、lumenを改造した&lt;a href=&quot;https://github.com/yosipy/blog-kirima-maaya&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;blog-kirima-maaya&lt;/a&gt;を使わせてもらうことにしました。(&lt;a href=&quot;http://codelabo.com/posts/20200329145358&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;開発者の方のページ&lt;/a&gt;)&lt;/p&gt;
+&lt;h2 id=&quot;ブログの立ち上げそしてエラー&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E3%83%96%E3%83%AD%E3%82%B0%E3%81%AE%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E3%81%9D%E3%81%97%E3%81%A6%E3%82%A8%E3%83%A9%E3%83%BC&quot; aria-label=&quot;ブログの立ち上げそしてエラー permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a href=&quot;#%E3%83%96%E3%83%AD%E3%82%B0%E3%81%AE%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E3%81%9D%E3%81%97%E3%81%A6%E3%82%A8%E3%83%A9%E3%83%BC&quot; aria-label=&quot;ブログの立ち上げそしてエラー permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;ブログの立ち上げそしてエラー&lt;/h2&gt;
+&lt;p&gt;CHIKIの環境のOSは&lt;strong&gt;Windows10(64bit)&lt;/strong&gt;です。これにソフトをインストールしていきます。&lt;/p&gt;
+&lt;h3 id=&quot;nodejs、gatsby、雛形のインストールとエラー＆対処法&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#nodejs%E3%80%81gatsby%E3%80%81%E9%9B%9B%E5%BD%A2%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%A8%E3%82%A8%E3%83%A9%E3%83%BC%EF%BC%86%E5%AF%BE%E5%87%A6%E6%B3%95&quot; aria-label=&quot;nodejs、gatsby、雛形のインストールとエラー＆対処法 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a href=&quot;#nodejs%E3%80%81gatsby%E3%80%81%E9%9B%9B%E5%BD%A2%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%A8%E3%82%A8%E3%83%A9%E3%83%BC%EF%BC%86%E5%AF%BE%E5%87%A6%E6%B3%95&quot; aria-label=&quot;nodejs、gatsby、雛形のインストールとエラー＆対処法 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Node.js、Gatsby、雛形のインストールとエラー＆対処法&lt;/h3&gt;
+&lt;p&gt;Gatsbyはnode.jsが必要なので、
+&lt;a href=&quot;https://nodejs.org/ja/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;ここ&lt;/a&gt;から最新版(2021/01/01時点で&lt;strong&gt;16.13.1&lt;/strong&gt;)のインストーラをダウンロードし、
+インストールします。
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 654px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 34.09785932721712%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAIAAACHqfpvAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABnUlEQVQY0z2N2UoCcRTGh5ZLW4gWs4ieoo2g7AGK7rvqIqibuqjMamyjolAjKAi1J6ggWzBsJiy7KEOUTLJ1muWvjc5IWTLNgh0JOnwcvnPO9+NgNMOwLIveEfPOoiTHgXiWTtBMgoknUVLkHx4f7iIRSNEMDUVRVDgcRgjZ7HYsl8upmqpoCigrZb+y35Is/Sg/4FVNk1UZriAwsiIrqgKCESiny5WH/+tT+EhxKSEhyJIsJkTqhRLiIs/xGTHDvSEpK/3FNE2D7vqDPVHPyN7I7PHMnGcWP8YXPPMTbtMqsUKlXk3745YjC344vXiyaCdt9jOb+WAiGo8C5XA6sFyQGnb2Y31Y3WR1PW4oGS0x4PrioaLGsUb/o79woLB0TKc3VzdZm43rna225oJBbCe4C/CWYyv/edm7VGbSGSz6lrWW3u3uhpn6CnN5+3pbGIVq8Zqa6aquTWPPdo9xowN81VQlGSPyn10OjE8JgdsAESD8oQvv1cnhxYEv6CNvyMuQ//7p/vQ6vycDhPvcDcvzoA+SsedYOp22Wq2/IXwtSd0SwNsAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/c255527c089202be49c3fc29231b4fbd/8ac56/2021-01-01_nodejs.webp 240w,
+/static/c255527c089202be49c3fc29231b4fbd/d3be9/2021-01-01_nodejs.webp 480w,
+/static/c255527c089202be49c3fc29231b4fbd/d7085/2021-01-01_nodejs.webp 654w&quot;
+          sizes=&quot;(max-width: 654px) 100vw, 654px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/c255527c089202be49c3fc29231b4fbd/8ff5a/2021-01-01_nodejs.png 240w,
+/static/c255527c089202be49c3fc29231b4fbd/e85cb/2021-01-01_nodejs.png 480w,
+/static/c255527c089202be49c3fc29231b4fbd/68e9c/2021-01-01_nodejs.png 654w&quot;
+          sizes=&quot;(max-width: 654px) 100vw, 654px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/c255527c089202be49c3fc29231b4fbd/68e9c/2021-01-01_nodejs.png&quot;
+          alt=&quot;Node.jsダウンロード&quot;
+          title=&quot;Node.jsダウンロード&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+    &lt;/span&gt;
+続いてコマンドプロンプト上で&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -g gatsby-cli&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;とコマンドをうつことでGatsbyが使えるようになります。
+(なお&lt;a href=&quot;https://www.gatsbyjs.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;公式サイト&lt;/a&gt;のコマンド&lt;code class=&quot;language-text&quot;&gt;npm init gatsby&lt;/code&gt;だと、
+プロジェクト(あるフォルダ)でのみGatsbyが有効になるそうです)  &lt;/p&gt;
+&lt;p&gt;最後に、GitHubのReadme.mdにあるように、適当なフォルダで&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;gatsby new blog https://github.com/yosipy/blog-kirima-maaya&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;とコマンドを入力すれば、&lt;code class=&quot;language-text&quot;&gt;blog&lt;/code&gt;というフォルダにブログのフォルダが構成されるはずなのですが…&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; ERR&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt; code &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; ERR&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt; path &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;フォルダパス&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; ERR&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;command&lt;/span&gt; failed
+&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; ERR&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;command&lt;/span&gt; C:&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;WINDOWS&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;system32&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;cmd.exe /d /s /c &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;node install/libvips &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; node install/dll-copy &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; prebuild-install&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;node-gyp rebuild &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; node install/dll-copy&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.
+&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; ERR&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt; A complete log of this run can be found in:&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;エラーが出た。なんでや。&lt;br&gt;
+いろいろ調べた結果、Gatsbyは最新のNode.jsには対応していないようで、
+&lt;a href=&quot;https://www.gatsbyjs.com/docs/upgrading-node-js/#upgrading-from-nodejs-version-10&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Gatsy公式によると、Node.jsのバージョンは14じゃないとだめらしい&lt;/a&gt;。&lt;br&gt;
+いったんNode.jsをアンインストールし、&lt;a href=&quot;https://nodejs.org/ja/download/releases/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;ここからNode.js 14.18.2をダウンロードして&lt;/a&gt;インストールします。&lt;/p&gt;
+&lt;h3 id=&quot;node-gypエラーと対処法&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#node-gyp%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%A8%E5%AF%BE%E5%87%A6%E6%B3%95&quot; aria-label=&quot;node gypエラーと対処法 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a href=&quot;#node-gyp%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%A8%E5%AF%BE%E5%87%A6%E6%B3%95&quot; aria-label=&quot;node gypエラーと対処法 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;node-gypエラーと対処法&lt;/h3&gt;
+&lt;p&gt;すると…Gatsbyとブログ用ファイルのインストールはうまくいったのですが、次はnode-gypというエラーが発生しました…&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;gyp ERR! configure error
+gyp ERR! stack Error: Command failed: C:\Users\chiki\AppData\Local\Programs\Python\Python310\python.EXE -c import sys; print &amp;quot;%s.%s.%s&amp;quot; % sys.version_info[:3];
+gyp ERR! stack   File &amp;quot;&amp;lt;string&amp;gt;&amp;quot;, line 1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;調べてみると&lt;a href=&quot;https://github.com/nodejs/node-gyp&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;node-gyp&lt;/a&gt;というのはNode.jsからC++やpythonのプログラムを使えるようにするものらしいです。
+なので各OS用のC++とpython(2.7推奨)をインストールしてパスを教えてあげないといけないそうです。&lt;br&gt;
+Windows10の場合は&lt;a href=&quot;https://github.com/felixrieseberg/windows-build-tools&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;windows-build-tools&lt;/a&gt;というのがあり、
+&lt;strong&gt;管理者権限の&lt;/strong&gt;コマンドプロンプトで&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;npm install --global windows-build-tools&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;と打てばよいらしい。早速やってみますが…&lt;/p&gt;
+&lt;h3 id=&quot;windows-build-toolsのエラーと対処法&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#windows-build-tools%E3%81%AE%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%A8%E5%AF%BE%E5%87%A6%E6%B3%95&quot; aria-label=&quot;windows build toolsのエラーと対処法 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a href=&quot;#windows-build-tools%E3%81%AE%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%A8%E5%AF%BE%E5%87%A6%E6%B3%95&quot; aria-label=&quot;windows build toolsのエラーと対処法 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;windows-build-toolsのエラーと対処法&lt;/h3&gt;
+&lt;p&gt;windows-build-toolsのインストール途中で、以下のメッセージが出て止まってしまいました。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Starting installation...
+Launched installers, now waiting for them to finish.
+This will likely take some time - please be patient!
+
+Status from the installers:
+---------- Visual Studio Build Tools ----------
+Still waiting for installer log file...
+------------------- Python --------------------
+Successfully installed Python 2.7&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Ctrl-C&lt;/code&gt;で一旦停止させます。&lt;br&gt;
+同様のエラーを取り上げてくださっている↓のブログを参考にしました。&lt;/p&gt;
+&lt;div class=&quot;iframely-embed&quot;&gt;&lt;div class=&quot;iframely-responsive&quot; style=&quot;height: 140px; padding-bottom: 0;&quot;&gt;&lt;a href=&quot;https://moewe-net.com/nodejs/not-completed-windows-build-tools&quot; data-iframely-url=&quot;//cdn.iframe.ly/mPoxkRQ&quot;&gt; &lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;この時点でC++(Visual Studio)とpythonはインストールは完了しているということなのでpythonのフォルダの存在を確認します。&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;C:\Users\&amp;lt;ユーザー名&amp;gt;\.windows-build-tools\python27&lt;/code&gt;に&lt;code class=&quot;language-text&quot;&gt;python.exe&lt;/code&gt;ファイルがあることを確認します。その後コマンドプロンプトで&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;npm config list&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;と入力すると、node.jsの設定値が読み出せます。その中の&lt;code class=&quot;language-text&quot;&gt;userconfig&lt;/code&gt;のところで&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;; userconfig C:\Users\&amp;lt;ユーザー名&amp;gt;\.npmrc
+msbuild_path = &amp;quot;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe&amp;quot;
+msvs_version = &amp;quot;2017&amp;quot;
+python = &amp;quot;C:\\Users\\&amp;lt;ユーザー名&amp;gt;\\.windows-build-tools\\python27\\python.exe&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;と設定してあればOKです。(2022年1月現在のmsvs_versionは2017)。&lt;br&gt;
+もしpythonのパスやmsvsのバージョンが間違っていたら、&lt;code class=&quot;language-text&quot;&gt;C:\Users\&amp;lt;ユーザー名&amp;gt;\.npmrc&lt;/code&gt;のファイルを直接修正してしまうのが早いと思います。
+(私の場合は先にpython3をインストールしてしまったので競合して停止してしまったのだと思います…多分)   &lt;/p&gt;
+&lt;p&gt;ここまで設定・インストールした上で、コマンドプロンプトで&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;npm i -g node-gyp&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;と入力してnode-gypをインストールした後、再度ブログファイルをインストールし直した上で、&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;gatsby develop&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;と入力すると無事developモードが起動し、&lt;code class=&quot;language-text&quot;&gt;http://localhost:8000/&lt;/code&gt;にアクセスすると作成中ブログにアクセスすることができました。↓
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 767px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 60.495436766623214%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAA7DAAAOwwHHb6hkAAACHElEQVQoz5VTXYtSURQ96U1NqxknUcfRmzn2EEMZFGT4IIREgQkJ+hP8Z+IEvvnYND+gefWTRkEHTMVvvXr9XJ19Jm2MgjqwOHuvs87Z+3LXZvV6HVe1GhqNJmq1K7RaLXznXKVSwWg0Aq31ev3PYJPJBJ1OB+12G4PBkGMg4m63i/l8jv9djC7NZjP+QA/T6RTKWEG/38disRCgM4KqqqLARr+Jb+a0M7pEXdHnDYfDn/tAcBuMx2Mh3uSkI1Dh4Q2doihg5XIZXq8XLpcLsizj0OGA5/gxnDx3u92wWCyIxWLIZDKw2WyCo7Mjp/Nax3e3+xHsdjsSiQRYoVAAY0xAJ2lx/FDGx/cfYN67v+X9fj+SyeQ2v6OT8NLnw7s3b6HV3Nry4XAYrFgswmAwCOI2f3B/z4znz17DI7twz2QUfDAYxKfTUxFLkgRJq4HjUIbv6Ss47VYY9HpxFo1GrzvUaDTbKpJWixcnJ9ucEAgEkEqldjjrwQGeeDw7XCQSASuVSjCbzaJLwl2TCbLDDqPRCBOPSRgKhZBOp6HlxYjX6fR4YN7Hkc0KHe9uo4vH42CqOsX5+Rd8vbjA5eU3FApFUNf5fF7s2WwW1WoVzWYDn8/OBEdN/K7L5XJ8MGpg5G76/QNuA/Ian4s/GpbsRWYna5CF/mrs1WolhJ1OF20+MRNlhNVqieXyF0hDxqUJElPU60GdKFgtd3WEH/ieqzsKi1eiAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/11aa38b97972ef26e360529cc43cfe99/8ac56/2021-01-01_blog.webp 240w,
+/static/11aa38b97972ef26e360529cc43cfe99/d3be9/2021-01-01_blog.webp 480w,
+/static/11aa38b97972ef26e360529cc43cfe99/e0ad8/2021-01-01_blog.webp 767w&quot;
+          sizes=&quot;(max-width: 767px) 100vw, 767px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/11aa38b97972ef26e360529cc43cfe99/8ff5a/2021-01-01_blog.png 240w,
+/static/11aa38b97972ef26e360529cc43cfe99/e85cb/2021-01-01_blog.png 480w,
+/static/11aa38b97972ef26e360529cc43cfe99/6c2f2/2021-01-01_blog.png 767w&quot;
+          sizes=&quot;(max-width: 767px) 100vw, 767px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/11aa38b97972ef26e360529cc43cfe99/6c2f2/2021-01-01_blog.png&quot;
+          alt=&quot;ブログトップ画面&quot;
+          title=&quot;ブログトップ画面&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+    &lt;/span&gt; &lt;/p&gt;
+&lt;h3 id=&quot;番外編-nvm-windowsの実行エラー&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%95%AA%E5%A4%96%E7%B7%A8-nvm-windows%E3%81%AE%E5%AE%9F%E8%A1%8C%E3%82%A8%E3%83%A9%E3%83%BC&quot; aria-label=&quot;番外編 nvm windowsの実行エラー permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a href=&quot;#%E7%95%AA%E5%A4%96%E7%B7%A8-nvm-windows%E3%81%AE%E5%AE%9F%E8%A1%8C%E3%82%A8%E3%83%A9%E3%83%BC&quot; aria-label=&quot;番外編 nvm windowsの実行エラー permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;番外編　nvm-windowsの実行エラー&lt;/h3&gt;
+&lt;p&gt;Windows上でNode.jsのバージョンダウンする時、そのままインストールするのではなく、&lt;a href=&quot;https://github.com/coreybutler/nvm-windows#node-version-manager-nvm-for-windows&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;nvm-windows(Node.jsのバージョン切り替えツール)&lt;/a&gt;
+を使うほうがいいと思います。
+&lt;a href=&quot;https://docs.microsoft.com/ja-jp/windows/dev-environment/javascript/nodejs-on-windows&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;こちら&lt;/a&gt;にマイクロソフト公式の案内があるので、
+これにしたがって、すでにインストールしたNode.jsを一度アンインストールした上で&lt;strong&gt;nvm-setup.exe&lt;/strong&gt;をインストールして、&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;nvm install 14.18.2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;でnode.jsバージョン14.18.2をインストールし、続いて&lt;code class=&quot;language-text&quot;&gt;nvm use 14.18.2&lt;/code&gt;でセットできるはずが…
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 372px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 13.978494623655912%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAIAAAAcOLh5AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAnklEQVQI1yWNzQ6DIBCEORE8igaqxp+DAgbhQkm0Jb6O576CN33qTtrJZpOdnf2W1HVdliV613VCCOfc56fjOB6Q5CghJOccGSll0zRFUWRZxhgjy7LANcaklKy1+76f53nf13XdMT631ad3WNcXoMjEGEMIWuthGNq2JbAAw4DLaZrwjFKa53nf9+Bqbax18zyP41hV1R+hlMLKe/8FKywehxVCccEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/36bc38037c00377333f4f2ad4d6f9289/8ac56/nvmerror.webp 240w,
+/static/36bc38037c00377333f4f2ad4d6f9289/7fd57/nvmerror.webp 372w&quot;
+          sizes=&quot;(max-width: 372px) 100vw, 372px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/36bc38037c00377333f4f2ad4d6f9289/8ff5a/nvmerror.png 240w,
+/static/36bc38037c00377333f4f2ad4d6f9289/98b6e/nvmerror.png 372w&quot;
+          sizes=&quot;(max-width: 372px) 100vw, 372px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/36bc38037c00377333f4f2ad4d6f9289/98b6e/nvmerror.png&quot;
+          alt=&quot;nvmエラー画面&quot;
+          title=&quot;nvmエラー画面&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+    &lt;/span&gt;
+またしてもエラー、しかも文字化け…&lt;br&gt;
+調べてみると&lt;strong&gt;管理者権限で実行&lt;/strong&gt;することで無事切り替えができるようになりました。↓
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 342px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 14.035087719298245%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAIAAAAcOLh5AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAqklEQVQI1yWNOw6DMBiDmSIGFgSE/OGpNISHCFEKElXvBL0FExdhLgsDd+svdfFgf7adNE0BQEo5jmPTNHmeb9t2Xdd938uyuC55iCRJKACPoogxxjkvigI1CALHGINhWZbzPPd9r5Ta9/04jvP8rusHIH6/tDHK2ieSdV1rrRHLsiwMQ2eaJlzCT2stNoUQXdf5vk8pxZ+2bYWQccyqqvpPD8OAPiHE87wf96EipKTDrLQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/821add81e3bd542c540d3bfdfd66ec43/8ac56/nvmuse.webp 240w,
+/static/821add81e3bd542c540d3bfdfd66ec43/64f66/nvmuse.webp 342w&quot;
+          sizes=&quot;(max-width: 342px) 100vw, 342px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/821add81e3bd542c540d3bfdfd66ec43/8ff5a/nvmuse.png 240w,
+/static/821add81e3bd542c540d3bfdfd66ec43/e2c15/nvmuse.png 342w&quot;
+          sizes=&quot;(max-width: 342px) 100vw, 342px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/821add81e3bd542c540d3bfdfd66ec43/e2c15/nvmuse.png&quot;
+          alt=&quot;nvm use成功画面&quot;
+          title=&quot;nvm use成功画面&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+    &lt;/span&gt; &lt;/p&gt;</content:encoded></item><item><title><![CDATA[ブログを立ち上げてみよう～選定編～]]></title><description><![CDATA[ブログをどう立ち上げるか。その選定の記録]]></description><link>https://chikisblog.cfposts-20201227</link><guid isPermaLink="false">https://chikisblog.cfposts-20201227</guid><pubDate>Mon, 27 Dec 2021 07:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;ブログサービスを探してみる&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E3%83%96%E3%83%AD%E3%82%B0%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%82%92%E6%8E%A2%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B&quot; aria-label=&quot;ブログサービスを探してみる permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a href=&quot;#%E3%83%96%E3%83%AD%E3%82%B0%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%82%92%E6%8E%A2%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B&quot; aria-label=&quot;ブログサービスを探してみる permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;ブログサービスを探してみる&lt;/h2&gt;
+&lt;p&gt;2021年も暮れに迫ったある日、ふと思いついたことがありました。&lt;br&gt;
+「そうだ、ブログを立てよう」&lt;/p&gt;
+&lt;p&gt;さっそくGoogle先生に相談してみる。いろいな実装方法がありますなぁ。&lt;/p&gt;
+&lt;h3 id=&quot;専用サービスを探す&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%B0%82%E7%94%A8%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%82%92%E6%8E%A2%E3%81%99&quot; aria-label=&quot;専用サービスを探す permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a href=&quot;#%E5%B0%82%E7%94%A8%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%82%92%E6%8E%A2%E3%81%99&quot; aria-label=&quot;専用サービスを探す permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;専用サービスを探す&lt;/h3&gt;
+&lt;p&gt;ブログ専用サービスにアカウント作ってテンプレート選んで、入力フォームみたいなのに文章を入力して
+公開するやつです。&lt;br&gt;
+有名なものだと&lt;a href=&quot;https://ameblo.jp/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Amebaブログ&lt;/a&gt;とか&lt;a href=&quot;https://blog.livedoor.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;ライブドアブログ&lt;/a&gt;とか
+&lt;a href=&quot;https://hatenablog.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;はてなブログ&lt;/a&gt;とか、
+技術系だと&lt;a href=&quot;https://qiita.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Qiita&lt;/a&gt;とか有料記事をかける&lt;a href=&quot;https://note.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;note&lt;/a&gt;とかでしょうか。&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;emoji&quot; draggable=&quot;false&quot; alt=&quot;&amp;#x2B55;&amp;#xFE0F;&quot; src=&quot;https://twemoji.maxcdn.com/2/72x72/2b55.png&quot; style=&quot;height: 1em; width: 1em; margin: 0 .05em 0 .1em; vertical-align: -0.1em; display: inline-block;&quot;&gt; 実装がかんたん&lt;br&gt;
+&lt;img class=&quot;emoji&quot; draggable=&quot;false&quot; alt=&quot;&amp;#x2B55;&amp;#xFE0F;&quot; src=&quot;https://twemoji.maxcdn.com/2/72x72/2b55.png&quot; style=&quot;height: 1em; width: 1em; margin: 0 .05em 0 .1em; vertical-align: -0.1em; display: inline-block;&quot;&gt; きれいなテンプレート・デザインがたくさんある&lt;br&gt;
+&lt;img class=&quot;emoji&quot; draggable=&quot;false&quot; alt=&quot;&amp;#x2B55;&amp;#xFE0F;&quot; src=&quot;https://twemoji.maxcdn.com/2/72x72/2b55.png&quot; style=&quot;height: 1em; width: 1em; margin: 0 .05em 0 .1em; vertical-align: -0.1em; display: inline-block;&quot;&gt; ランキングやサイト内検索など閲覧者を呼び込むサービスがある&lt;br&gt;
+&lt;img class=&quot;emoji&quot; draggable=&quot;false&quot; alt=&quot;&amp;#x274C;&quot; src=&quot;https://twemoji.maxcdn.com/2/72x72/274c.png&quot; style=&quot;height: 1em; width: 1em; margin: 0 .05em 0 .1em; vertical-align: -0.1em; display: inline-block;&quot;&gt; 実装の勉強にならない&lt;br&gt;
+&lt;img class=&quot;emoji&quot; draggable=&quot;false&quot; alt=&quot;&amp;#x274C;&quot; src=&quot;https://twemoji.maxcdn.com/2/72x72/274c.png&quot; style=&quot;height: 1em; width: 1em; margin: 0 .05em 0 .1em; vertical-align: -0.1em; display: inline-block;&quot;&gt; サービスの終了が不安。独自ドメインが使えない。&lt;br&gt;
+&lt;img class=&quot;emoji&quot; draggable=&quot;false&quot; alt=&quot;&amp;#x274C;&quot; src=&quot;https://twemoji.maxcdn.com/2/72x72/274c.png&quot; style=&quot;height: 1em; width: 1em; margin: 0 .05em 0 .1em; vertical-align: -0.1em; display: inline-block;&quot;&gt; 自由度が低い(アフィリエイトとか解析とか)  &lt;/p&gt;
+&lt;p&gt;ブログを作るだけなら一番簡単です。カテゴリ別ランキングなど集客サービスが揃っているのも魅力です。&lt;br&gt;
+反面、他のサイト、ツール、サービスの連携がしにくく、プログラムやWebサービス実装の勉強にならないのでやめました。&lt;br&gt;
+またサービス終了も不安の種で、独自ドメイン(URL)を使えるところが良いと思いました。(いざという時URLの変更なしで乗り換えられるので)&lt;/p&gt;
+&lt;h3 id=&quot;レンタルサーバーwordpress&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E3%83%AC%E3%83%B3%E3%82%BF%E3%83%AB%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BCwordpress&quot; aria-label=&quot;レンタルサーバーwordpress permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a href=&quot;#%E3%83%AC%E3%83%B3%E3%82%BF%E3%83%AB%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BCwordpress&quot; aria-label=&quot;レンタルサーバーwordpress permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;レンタルサーバー&amp;#x26;WordPress&lt;/h3&gt;
+&lt;p&gt;お金を出してサーバをレンタルして、その上でWordPressというソフトを動かしてブログを公開する方法です。
+WordPressを使うとブログだけではなく様々なWebサービスを公開することができるようです。&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;emoji&quot; draggable=&quot;false&quot; alt=&quot;&amp;#x2B55;&amp;#xFE0F;&quot; src=&quot;https://twemoji.maxcdn.com/2/72x72/2b55.png&quot; style=&quot;height: 1em; width: 1em; margin: 0 .05em 0 .1em; vertical-align: -0.1em; display: inline-block;&quot;&gt;：シェアが大きく、ドキュメントやテンプレートが揃っている。&lt;br&gt;
+&lt;img class=&quot;emoji&quot; draggable=&quot;false&quot; alt=&quot;&amp;#x2B55;&amp;#xFE0F;&quot; src=&quot;https://twemoji.maxcdn.com/2/72x72/2b55.png&quot; style=&quot;height: 1em; width: 1em; margin: 0 .05em 0 .1em; vertical-align: -0.1em; display: inline-block;&quot;&gt;：ブログだけではなく他のWebサービスも実装できる。&lt;br&gt;
+&lt;img class=&quot;emoji&quot; draggable=&quot;false&quot; alt=&quot;&amp;#x2B55;&amp;#xFE0F;&quot; src=&quot;https://twemoji.maxcdn.com/2/72x72/2b55.png&quot; style=&quot;height: 1em; width: 1em; margin: 0 .05em 0 .1em; vertical-align: -0.1em; display: inline-block;&quot;&gt;：独自ドメインが使える。&lt;br&gt;
+&lt;img class=&quot;emoji&quot; draggable=&quot;false&quot; alt=&quot;&amp;#x274C;&quot; src=&quot;https://twemoji.maxcdn.com/2/72x72/274c.png&quot; style=&quot;height: 1em; width: 1em; margin: 0 .05em 0 .1em; vertical-align: -0.1em; display: inline-block;&quot;&gt;：レンタルサーバーが有料&lt;br&gt;
+&lt;img class=&quot;emoji&quot; draggable=&quot;false&quot; alt=&quot;&amp;#x274C;&quot; src=&quot;https://twemoji.maxcdn.com/2/72x72/274c.png&quot; style=&quot;height: 1em; width: 1em; margin: 0 .05em 0 .1em; vertical-align: -0.1em; display: inline-block;&quot;&gt;：WordPressやサーバーのセキュリティを保持する責任がある。&lt;br&gt;
+&lt;img class=&quot;emoji&quot; draggable=&quot;false&quot; alt=&quot;&amp;#x274C;&quot; src=&quot;https://twemoji.maxcdn.com/2/72x72/274c.png&quot; style=&quot;height: 1em; width: 1em; margin: 0 .05em 0 .1em; vertical-align: -0.1em; display: inline-block;&quot;&gt;：WordPress自体がやや時代遅れのサービス  &lt;/p&gt;
+&lt;p&gt;少し前(今も？)、本格的にブログを公開する時はこれが主流でした。サーバーをレンタルし、ソフトを入れて動かすので
+独自ドメインを使っても各種サービスを動かすのも自由です。ドキュメントやテンプレートも多く、困ったときにすぐ調べられます。&lt;/p&gt;
+&lt;p&gt;一方で、お金がかかるので(月数百円レベルですが、クレジットカード等支払い方法を確保・登録するのがネック)ちょっと手軽ではありません。
+またWordPressのセキュリティアップデートなどソフトを管理する責任が生じます。(WordpressはれっきとしたPHPプログラムなので)。&lt;br&gt;
+さらに性能的にもやや時代遅れ(ブログを閲覧するたびにPHPプログラムが動くので動作が遅い)ということなのでこちらも見送りました。&lt;/p&gt;
+&lt;h3 id=&quot;nextjs--microcms-vercel&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#nextjs--microcms-vercel&quot; aria-label=&quot;nextjs  microcms vercel permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a href=&quot;#nextjs--microcms-vercel&quot; aria-label=&quot;nextjs  microcms vercel permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Nextjs + microCMS (+Vercel)&lt;/h3&gt;
+&lt;p&gt;説明が難しいですが、&lt;a href=&quot;https://vercel.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Vercel&lt;/a&gt;とは静的なサイトをホスティングする…
+つまりHTML+CSS+Javascriptだけ実装しているWebサイトを公開できるサービスです。&lt;/p&gt;
+&lt;p&gt;が、本来は&lt;a href=&quot;https://nextjs.org/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Next.js&lt;/a&gt;を動かすために最適化されたプラットフォーム(だそう)です。
+このNext.jsとは&lt;a href=&quot;https://ja.reactjs.org/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;React.js&lt;/a&gt;を使ったフレームワークで…と続いていくのですが、
+要は「ブログとか企業のホームページみたいなものをいちからつくるのは大変なので、
+Next.jsという雛形を改造して最後ビルドすればHTMLで出てくる」といった感じ(のよう)です。
+これに&lt;a href=&quot;https://microcms.io/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;microCMS&lt;/a&gt;を組み合わせてブログを公開できるそうです。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://microcms.io/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;microCMS公式&lt;/a&gt;がやり方を説明してくれているのでそのとおりにやってみました。&lt;/p&gt;
+&lt;div class=&quot;iframely-embed&quot;&gt;&lt;div class=&quot;iframely-responsive&quot; style=&quot;height: 140px; padding-bottom: 0;&quot;&gt;
+&lt;a href=&quot;https://blog.microcms.io/microcms-next-jamstack-blog/&quot; data-iframely-url=&quot;//cdn.iframe.ly/XpRdgoW?card=small&amp;amp;omit_script=1&amp;amp;iframe=1&quot;&gt; &lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;上記はあくまでチュートリアルで、Next.js用のブログの雛形をこれまたmicroCMSが公開してくださってます。↓&lt;/p&gt;
+&lt;div class=&quot;iframely-embed&quot;&gt;&lt;div class=&quot;iframely-responsive&quot; style=&quot;height: 140px; padding-bottom: 0;&quot;&gt;
+&lt;a href=&quot;https://document.microcms.io&quot; data-iframely-url=&quot;//cdn.iframe.ly/9nBL6xO?card=small&amp;amp;omit_script=1&amp;amp;iframe=1&quot;&gt; &lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;試してみた結果↓&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img class=&quot;emoji&quot; draggable=&quot;false&quot; alt=&quot;&amp;#x2B55;&amp;#xFE0F;&quot; src=&quot;https://twemoji.maxcdn.com/2/72x72/2b55.png&quot; style=&quot;height: 1em; width: 1em; margin: 0 .05em 0 .1em; vertical-align: -0.1em; display: inline-block;&quot;&gt;予めHTMLを作るので表示等が早い&lt;/li&gt;
+&lt;li&gt;&lt;img class=&quot;emoji&quot; draggable=&quot;false&quot; alt=&quot;&amp;#x2B55;&amp;#xFE0F;&quot; src=&quot;https://twemoji.maxcdn.com/2/72x72/2b55.png&quot; style=&quot;height: 1em; width: 1em; margin: 0 .05em 0 .1em; vertical-align: -0.1em; display: inline-block;&quot;&gt;非常に大規模なページを作れそう&lt;/li&gt;
+&lt;li&gt;&lt;img class=&quot;emoji&quot; draggable=&quot;false&quot; alt=&quot;&amp;#x2B55;&amp;#xFE0F;&quot; src=&quot;https://twemoji.maxcdn.com/2/72x72/2b55.png&quot; style=&quot;height: 1em; width: 1em; margin: 0 .05em 0 .1em; vertical-align: -0.1em; display: inline-block;&quot;&gt;CMS(データ管理システム)が独立しているのでスマホでも投稿できる。&lt;/li&gt;
+&lt;li&gt;&lt;img class=&quot;emoji&quot; draggable=&quot;false&quot; alt=&quot;&amp;#x274C;&quot; src=&quot;https://twemoji.maxcdn.com/2/72x72/274c.png&quot; style=&quot;height: 1em; width: 1em; margin: 0 .05em 0 .1em; vertical-align: -0.1em; display: inline-block;&quot;&gt;規模が大きすぎて個人で改造・管理が難しい。&lt;/li&gt;
+&lt;li&gt;&lt;img class=&quot;emoji&quot; draggable=&quot;false&quot; alt=&quot;&amp;#x274C;&quot; src=&quot;https://twemoji.maxcdn.com/2/72x72/274c.png&quot; style=&quot;height: 1em; width: 1em; margin: 0 .05em 0 .1em; vertical-align: -0.1em; display: inline-block;&quot;&gt;ドキュメントやテンプレートがまだ少ない&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;デモのページを見てわかりますが、執筆者を複数切り替えできたりとにかく規模が大きいです。
+Next.jsのフォルダ構造も大きく、何でもできそうな反面(&lt;a href=&quot;https://nextjs.org/showcase&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;showcase&lt;/a&gt;に採用実績が載っています)、
+個人で扱うには難しそうでした。&lt;br&gt;
+またドキュメントやテンプレートがまだ揃っていないのも懸念材料です。&lt;br&gt;
+なおVercel自体はアクセス速度も早くとても良いサービスだと思います。
+(&lt;a href=&quot;https://magireco-chara-search.cf/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;マギレコキャラストーリー検索&lt;/a&gt;でも使わせてもらっています。)&lt;/p&gt;
+&lt;h3 id=&quot;gatsubyjs--netlify&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#gatsubyjs--netlify&quot; aria-label=&quot;gatsubyjs  netlify permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a href=&quot;#gatsubyjs--netlify&quot; aria-label=&quot;gatsubyjs  netlify permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Gatsuby.js (+ Netlify)&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.gatsbyjs.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Gatsuby.js&lt;/a&gt;もNext.jsと同じくReact.jsのフレームワーク(だそう)です。
+Next.jsと比べた結果ですが、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img class=&quot;emoji&quot; draggable=&quot;false&quot; alt=&quot;&amp;#x2B55;&amp;#xFE0F;&quot; src=&quot;https://twemoji.maxcdn.com/2/72x72/2b55.png&quot; style=&quot;height: 1em; width: 1em; margin: 0 .05em 0 .1em; vertical-align: -0.1em; display: inline-block;&quot;&gt;予めHTMLを作るので表示等が早い(Next.jsと同じ)&lt;/li&gt;
+&lt;li&gt;&lt;img class=&quot;emoji&quot; draggable=&quot;false&quot; alt=&quot;&amp;#x2B55;&amp;#xFE0F;&quot; src=&quot;https://twemoji.maxcdn.com/2/72x72/2b55.png&quot; style=&quot;height: 1em; width: 1em; margin: 0 .05em 0 .1em; vertical-align: -0.1em; display: inline-block;&quot;&gt; Next.jsと比べるとコンパクトで日本語のドキュメントやテンプレートが多い印象&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;さらに、Vercelと比べてプラットフォームの自由度が高い(その分日本からのアクセスはやや遅いそうですが)
+&lt;a href=&quot;https://app.netlify.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Netlify&lt;/a&gt;を公開プラットフォームに選びました。&lt;/p&gt;
+&lt;h2 id=&quot;終わりに&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%B5%82%E3%82%8F%E3%82%8A%E3%81%AB&quot; aria-label=&quot;終わりに permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a href=&quot;#%E7%B5%82%E3%82%8F%E3%82%8A%E3%81%AB&quot; aria-label=&quot;終わりに permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;終わりに&lt;/h2&gt;
+&lt;p&gt;「Gatsuby + Netlify」体制でブログを立てることにしたCHIki。
+しかしここからさらに苦難の道が続くのでありました…&lt;br&gt;
+Gatsuby立ち上げ編に続きます。&lt;/p&gt;</content:encoded></item></channel></rss>
