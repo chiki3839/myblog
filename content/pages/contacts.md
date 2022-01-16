@@ -6,6 +6,10 @@ draft: false
 ---
 ## 運営者情報
 
-### aaaa
+### CHIKI
 
-aaaa aaaa aaaa aaaa aaaa
+アラサーボンビー~~ガール~~日曜プログラマ。
+WEBやパソコンのプログラムやライフハックの話ができればいいなと思います。
+アイコンは飼ってるうさぎ、名前は黒餅。マギレコWebツール部。
+
+mail: chiki3839@gmail.com

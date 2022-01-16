@@ -1,39 +1,36 @@
 'use strict';
 
 module.exports = {
-  url: 'https://blog-kirima-maaya',
+  url: 'https://chikisblog.cf',
   pathPrefix: '/',
-  title: 'blog-kirima-maaya',
-  subtitle: 'blog-kirima-maaya',
+  title: 'CHIKIのブログ',
+  subtitle: 'blog by CHIKI',
   copyright: '© All rights reserved.',
   disqusShortname: '',
   postsPerPage: 32,
   googleAnalyticsId: 'UA-XXXXXXXXXXX',
+  googleSeachConsoleID: 'NFrymbiFWf7jHn8cZMRYvbuZr8ukWg9ICex6t4oQn1Y',
   useKatex: false,
   menu: [
     {
-      label: 'V',
-      path: '/category/V/'
+      label: 'ブログのこと',
+      path: '/category/ブログのこと/'
     },
     {
-      label: 'category2',
-      path: '/category/category2/'
+      label: 'マギレコWebツール部',
+      path: '/category/マギレコWebツール部/'
     },
-    {
-      label: 'category3',
-      path: '/category/category3/'
-    }
   ],
   author: {
-    name: 'blog-kirima-maaya',
+    name: 'CHIKI',
     photo: '/photo.jpg',
-    bio: 'sample.',
+    bio: '成人済み日曜プログラマ。WEBやパソコンのプログラムやライフハックの話ができればいいなと思います。アイコンは飼ってるうさぎ、名前は黒餅。マギレコWebツール部。',
     contacts: {
-      email: '#',
-      facebook: '#',
+      email: 'chiki3839@gmail.com',
+      facebook: '',
       telegram: '',
-      twitter: '#',
-      github: '#',
+      twitter: 'chiki3839',
+      github: 'chiki3839',
       rss: '',
       vkontakte: '',
       linkedin: '',

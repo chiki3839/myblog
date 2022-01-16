@@ -3,15 +3,17 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styles from './Content.module.scss';
 import type { Node, Edges } from '../../../types';
+import moment from 'moment';
 
 type Props = {
   body: string,
   title: string,
   edges: Edges,
-  post: Node
+  post: Node,
+  date: string
 };
 
-const Content = ({ body, title, edges, post }: Props) => {
+const Content = ({ body, title, edges, post ,date}: Props) => {
   const Series = (() => {
     if(post.frontmatter.series !== null && post.frontmatter.series !== '' && typeof post.frontmatter.series !== 'undefined'){
       return(
@@ -37,7 +39,7 @@ const Content = ({ body, title, edges, post }: Props) => {
 
   const Toc = (() => {
     return(
-      <div　className={styles['content__toc']}>
+      <div className={styles['content__toc']}>
         <div>目次</div>
         <div 
           dangerouslySetInnerHTML=
@@ -52,7 +54,7 @@ const Content = ({ body, title, edges, post }: Props) => {
   return(
     <div className={styles['content']}>
       <h1 className={styles['content__title']}>{title}</h1>
-      {Series}
+      <div className={styles['content__date']}>{moment(date).format('YYYY年M月D日')}</div>
       {Toc}
       <div className={styles['content__body']} dangerouslySetInnerHTML={{ __html: body }} />
       {Series}

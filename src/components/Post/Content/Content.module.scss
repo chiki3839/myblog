@@ -6,6 +6,31 @@
   padding: 0 15px;
   margin: 0 auto;
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+  margin-top:3rem
+  }
+
+
+  h1::after,
+  h2::after,
+  h3::after,
+  h4::after,
+  h5::after,
+  h6::after {
+    //見出しのデザイン2
+    content: "";
+    display: block;
+    height: 4px;
+    background: -webkit-linear-gradient(to right, #EF5D9C, transparent);
+    background: linear-gradient(to right, #EF5D9C, transparent);
+
+  }
+
   &__title {
     font-size: $typographic-base-font-size * 1.5; //2;
     max-width: $layout-post-width;
@@ -19,22 +44,33 @@
   }
 
   &__toc {
-    width: 100%;
+    width: 90%;
     padding: 10px 20px;
+    border-top:2px solid #FFB6C1;
+    border-bottom:2px solid #FFB6C1;
+    background-color: #FDFDFD;
+    
   }
+  
+  &__toc  p, ul {
+	margin: 0px 0px 10px 0px;
+
+  }
+  
 
   &__series {
     @include margin-bottom(1);
     padding: 10px;
     max-width: $layout-post-width;
     font-size: $typographic-small-font-size;
-    border : solid 1px rgb(138, 138, 138) ;
+    border: solid 1px rgb(138, 138, 138);
 
     &-title {
       font-size: $typographic-small-font-size * 1.2;
     }
 
     &-link {
+
       //color: $color-base;
       &:hover,
       &:focus {
@@ -46,14 +82,16 @@
       }
     }
 
-    &-series-wrap{
+    &-series-wrap {
       display: inline-block;
       float: left;
     }
-    &-series-number{
+
+    &-series-number {
       display: inline-block;
     }
-    &-series-post-title{
+
+    &-series-post-title {
       display: inline-block;
     }
   }
@@ -92,6 +130,7 @@
 
     & img {
       max-width: 100%;
+      border: 1px #aaaaaa solid;
     }
 
   }
@@ -120,13 +159,13 @@
 
     &__body {
       font-size: $typographic-base-font-size * 1.125;
-      @include line-height(1.125);
-      @include margin-bottom(1.125);
+      @include line-height(0.5);
+      @include margin-bottom(0.5);
 
       & p {
         font-size: $typographic-base-font-size * 1.125;
-        @include line-height(1.125);
-        @include margin-bottom(1.125)
+        @include line-height(1);
+        @include margin-bottom(0.5)
       }
 
     }

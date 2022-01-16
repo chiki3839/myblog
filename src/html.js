@@ -11,7 +11,8 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-
+        {/*googleSeachConsoleのID*/}
+		<meta name="google-site-verification" content="oJaF0KZl9R8SKfyKEO8q-3qhTm7K3-Gy_MhRTZTPsaQ" />
         {/* GoogleアドセンスのJSを読み込む */}
         {/* <script data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> */}
 

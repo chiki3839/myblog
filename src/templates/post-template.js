@@ -9,6 +9,7 @@ import Footer from '../components/Footer';
 import Post from '../components/Post';
 import { useSiteMetadata } from '../hooks';
 import type { MarkdownRemark, AllMarkdownRemark } from '../types';
+import Iframely from "../components/iframely"
 
 type Props = {
   data: {
@@ -26,6 +27,7 @@ const PostTemplate = ({ data }: Props) => {
 
   return (
     <Layout title={`${postTitle} - ${siteTitle}`} description={metaDescription} socialImage={socialImage} >
+    <Iframely />
       <Header isIndex />
       <MainAndSide>
         <Post post={data.markdownRemark} edges={edges}/>

@@ -7,6 +7,7 @@ module.exports = {
   pathPrefix: siteConfig.pathPrefix,
   siteMetadata: {
     url: siteConfig.url,
+    siteUrl: 'https://chikisblog.cf/',
     title: siteConfig.title,
     subtitle: siteConfig.subtitle,
     copyright: siteConfig.copyright,
@@ -15,6 +16,7 @@ module.exports = {
     author: siteConfig.author
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -104,6 +106,17 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          {
+            resolve: `gatsby-remark-twemoji-shortcut`,
+            options: {
+              //classname: 'some_classname another_classname', // add additional classname(s) to the emoji
+              style: {
+                // add additional inline-styling to the emoji
+                //background: 'white'
+                display: 'inline-block'
+              }
+            }
+          },
           {
             resolve: `gatsby-remark-autolink-headers`,
             options: {

@@ -26,11 +26,12 @@ const Post = ({ post, edges }: Props) => {
 
       <div className={styles['post__content']}>
         <Img fluid={post.fields.thumbnail.childImageSharp.fluid} />
-        <Content body={html} title={title} edges={edges} post={post} />
+        <Content body={html} title={title} edges={edges} post={post} date={date} />
+
       </div>
 
       <div className={styles['post__footer']}>
-        <Meta date={date} />
+        {/*<Meta date={date} />*/}
         {tags && tagSlugs && <Tags tags={tags} tagSlugs={tagSlugs} />}
       </div>
 
